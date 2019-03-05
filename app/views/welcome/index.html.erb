@@ -1,19 +1,24 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-<div id="contact">
-  <div class="container contact-container">
+<h1>Email Caputre aka Subscribe/Unsubscibe options</h1>
+<p>Ideal this will be a simple email list.  The create will be the addition of an email.
+The read ...... ugh. i dunno yet.
+The Update will be a link option to chancge how often your email recieves a message.
+Delete will be the option of unsubscribing.
+</p>
+
 
       <h5>Sign Up For Great Deals in your Email</h5>
-			<%= email_field(:user, :address, placeholder: "Email (YourName@email.com)") %>
-			<!-- <input id="user_address" name="user[address]" type="email" /> -->
-		</br>
-			<%= radio_button_tag(:subscribe, "Subscribe") %>
-		  <%= label_tag(:subscribe_subscribe, "Subscribe to all News and Deals") %>
-			<%= radio_button_tag(:subscribe, "Unsubscribe") %>
-			<%= label_tag(:subscribe_unsubscribe, "Unsubscribe") %>
-		</br>
-			<%= submit_tag "Submit" %>
 
+      <%= form_tag do%>
+  			<%= email_field(:user, :address, placeholder: "Email (YourName@email.com)") %>
+  			<!-- <input id="user_address" name="user[address]" type="email" /> -->
+  		    </br>
+  			<%= radio_button_tag(:subscribe, "Subscribe") %>
+  		  <%= label_tag(:subscribe_subscribe, "Subscribe to all News and Deals") %>
+  			<%= radio_button_tag(:subscribe, "Unsubscribe") %>
+  			<%= label_tag(:subscribe_unsubscribe, "Unsubscribe") %>
+  		    </br>
+  			<%= submit_tag "Submit" %>
+      <% end %>
 			<!-- <form action="#">
         <div class="form-group">
           <label for="Email">Email address</label>
@@ -29,5 +34,3 @@
         </div>
         <button onclick="couponCode();" type="submit" class="btn">Submit</button>
       </form> -->
-    </div>
-</div>
