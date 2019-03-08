@@ -8,17 +8,18 @@ Delete will be the option of unsubscribing.
 
       <h5>Sign Up For Great Deals in your Email</h5>
 
-      <%= form_tag do%>
-  			<%= email_field(:user, :address, placeholder: "Email (YourName@email.com)") %>
-  			<!-- <input id="user_address" name="user[address]" type="email" /> -->
-  		    </br>
-  			<%= radio_button_tag(:subscribe, "Subscribe") %>
-  		  <%= label_tag(:subscribe_subscribe, "Subscribe to all News and Deals") %>
-  			<%= radio_button_tag(:subscribe, "Unsubscribe") %>
-  			<%= label_tag(:subscribe_unsubscribe, "Unsubscribe") %>
-  		    </br>
-  			<%= submit_tag "Submit" %>
+      <%= form_for @subscribe do |f|%>
+         <%= f.text_field :name, placeholder: "name" %></br>
+         <%= f.email_field :email, placeholder: "email" %></br>
+         <%= f.submit %>
+
       <% end %>
+
+
+
+
+
+
 			<!-- <form action="#">
         <div class="form-group">
           <label for="Email">Email address</label>
