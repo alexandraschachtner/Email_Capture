@@ -8,7 +8,7 @@ Delete will be the option of unsubscribing.
 
       <h5>Sign Up For Great Deals in your Email</h5>
 
-      <%= form_for @subscribe do |f|%>
+      <%= form_for @subscribe, url: manage_path do |f|%>
           <%= f.email_field :email, placeholder: "email" %></br>
           <%= radio_button_tag(:sub, "yes") %>
           <%= label_tag(:sub_y, "Give me Great Deals!") %>
