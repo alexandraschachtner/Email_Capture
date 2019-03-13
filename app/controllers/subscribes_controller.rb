@@ -10,9 +10,11 @@ class SubscribesController < ApplicationController
 	end
 
 def manage
-	
-end
-
+	if sub_params.subscribes
+		redirect_to: sub_post
+	else
+		redirect_to: unsub_post
+	end
 end
 
 private
@@ -20,7 +22,3 @@ private
 	def subscribe_params
 		params.require(:subscribe).permit(:email)
 	end
-	# def sub_y?
-  #   	redirect_to root_path, notice: "ooopies daisy!"
-	# 	end
-end
