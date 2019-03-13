@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   resources :subscribes
 
+  post 'manage', to: 'subscribes#manage'
+
   root 'welcome#index'
 end

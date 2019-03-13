@@ -9,9 +9,13 @@ class SubscribesController < ApplicationController
 	  end
 	end
 
+	def manage
+
+	end
+
 private
 
 	def subscribe_params
-		params.require(:subscribe).permit(:name, :email)
+		params.require(:subscribe).permit(:email)
 	end
 end
