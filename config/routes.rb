@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   post 'manage', to: 'subscribes#manage'
   post 'sub', to: 'subscribes#sub'
-  # post 'unsub', to: 'subscribes#unsub' as: :sub
+  # post 'unsub', to: 'subscribes#unsub'
 
 
   root 'welcome#index'
