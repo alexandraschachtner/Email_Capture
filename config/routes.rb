@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :subscribes
 
   post 'manage', to: 'subscribes#manage'
-  post 'sub', to: 'subscribes#sub'
+  post 'sub', to: 'subscribes#sub', as: :sub
   # post 'unsub', to: 'subscribes#unsub'
 
 

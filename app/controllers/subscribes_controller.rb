@@ -1,8 +1,8 @@
 class SubscribesController < ApplicationController
 
 	def manage
-		if subscribe_params.sub
-			redirect_to sub_post
+		if subscribe_params
+			redirect_to sub
 		# elseif subscribe_params.unsub
 		# 	redirect_to unsub_post
 		else
@@ -11,7 +11,7 @@ class SubscribesController < ApplicationController
 	end
 
 	def sub
-		@subscribe = Subscribe.find_or_initialize_by(email: subscribe_params[:email, :sub == "yes"])
+		@subscribe = Subscribe.find_or_initialize_by(email: subscribe_params[:email])
 		if @subscribe.new_record?
 			@subscribe.save!
 			redirect_to root_path, notice: "Hey thanks for signing up."
@@ -34,6 +34,6 @@ class SubscribesController < ApplicationController
 private
 
 	def subscribe_params
-		params.require(:subscribe).permit(:email)
+		params.permit(:email, :sub)
 	end
 # end
