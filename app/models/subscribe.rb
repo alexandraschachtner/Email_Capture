@@ -1,3 +1,3 @@
 class Subscribe < ApplicationRecord
-	validates  :email, presence: true
+	validates  :email, :sub, presence: true
 end

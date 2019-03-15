@@ -1,36 +1,39 @@
 class SubscribesController < ApplicationController
 
-
 	def manage
-		if subscribe_params.sub == "yes"
+		if subscribe_params[:sub] == "yes"
 			redirect_to sub_post
-		else
+		elseif subscribe_params[:sub] =="no"
 			redirect_to unsub_post
+		else
+			redirect_to root_path, notice: "Oops! It looks like something is missing."
 		end
 	end
 
-def sub
-	@subscribe = Subscribe.find_or_initialize_by(email: subscribe_params.email)
-	if @subscribe.new_record?
-		@subscribe.save!
-		redirect_to root_path, notice: "Hey thanks for signing up."
-	else
-		redirect_to root_path, notice: "Looks like your are already here!"
+	def sub
+		@subscribe = Subscribe.find_or_initialize_by(email: subscribe_params[:email])
+		if @subscribe.new_record?
+			@subscribe.save!
+			redirect_to root_path, notice: "Hey thanks for signing up."
+		else
+			redirect_to root_path, notice: "Looks like your are already here!"
+		end
 	end
-end
 
-def unsub
-@subscribe = Subscribe.find_or_initialize_by(email: subscribe_params.email)
-if @subscribe.new_record?
-	redirect_to root_path, notice: "Looks like your are already here!"
-else
-	redirect_to update_path
-end
-end
+	def unsub
+		@subscribe = Subscribe.find_or_initialize_by(email: subscribe_params[:email])
+		if @subscribe.new_record?
+			redirect_to root_path, notice: "Looks like your are already here!"
+		else
+			redirect_to update_path
+		end
+	end
+
+
 
 private
 
 	def subscribe_params
-		params.require(:subscribe).permit(:email)
+		params.require(:subscribe).permit(:email, :sub)
 	end
 end
