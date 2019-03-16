@@ -1,9 +1,9 @@
 class SubscribesController < ApplicationController
 
 	def manage
-		if subscribe_params[:sub] == "yes"
-			redirect_to sub_post
-		elseif subscribe_params[:sub] =="no"
+		if subscribe_params[:sub] == 'yes'
+			redirect_to notice: "Hey thanks for signing up."
+		elseif subscribe_params[:sub] =='no'
 			redirect_to unsub_post
 		else
 			redirect_to root_path, notice: "Oops! It looks like something is missing."

@@ -10,10 +10,10 @@ Delete will be the option of unsubscribing.
 
       <%= form_for @subscribe, url: manage_path do |f|%>
           <%= f.email_field :email, placeholder: "email" %></br>
-          <%= radio_button_tag(:sub, "yes") %>
+          <%= radio_button_tag(:sub, 'yes') %>
           <%= label_tag(:sub_y, "Give me Great Deals!") %>
         </br>
-          <%= radio_button_tag(:sub, "no") %>
+          <%= radio_button_tag(:sub, 'no') %>
           <%= label_tag(:sub_n, "Unsubscribe Me!") %>
         </br>
          <%= f.submit %>
